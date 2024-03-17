@@ -8,7 +8,7 @@ import "@/app/styles/main.scss";
 const app = createApp(App);
 
 app
-  .use(createRouter(app))
+  .use(createRouter())
   .use(
     createAuth0({
       domain: authConfig.domain,

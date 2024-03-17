@@ -3,3 +3,14 @@
 @import url(./_reset.scss);
 
 @import url(normalize.css);
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: var(--bg-primary-color);
+  color: #fff;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
