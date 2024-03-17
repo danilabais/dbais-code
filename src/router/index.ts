@@ -3,25 +3,22 @@ import {
   createWebHistory,
   Router,
 } from "vue-router";
-import Home from "../views/Home.vue";
-import Profile from "../views/Profile.vue";
-import { createAuthGuard } from "@auth0/auth0-vue";
-import { App } from "vue";
+import { HomeView } from "@/pages";
 
-export function createRouter(app: App): Router {
+export function createRouter(): Router {
   return createVueRouter({
     routes: [
       {
         path: "/",
         name: "home",
-        component: Home,
+        component: HomeView,
       },
-      {
-        path: "/profile",
-        name: "profile",
-        component: Profile,
-        beforeEnter: createAuthGuard(app),
-      },
+      // {
+      //   path: "/profile",
+      //   name: "profile",
+      //   component: Profile,
+      //   beforeEnter: createAuthGuard(app),
+      // },
     ],
     history: createWebHistory(),
   });
