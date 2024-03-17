@@ -23,7 +23,11 @@
           </ul>
           <ul class="navbar-nav d-none d-md-block">
             <li v-if="!isAuthenticated && !isLoading" class="nav-item">
-              <button id="qsLoginBtn" class="btn btn-primary btn-margin" @click.prevent="login">
+              <button
+                id="qsLoginBtn"
+                class="btn btn-primary btn-margin"
+                @click.prevent="login"
+              >
                 Login
               </button>
             </li>
@@ -44,21 +48,42 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header">{{ user.name }}</div>
-                <router-link to="/profile" class="dropdown-item dropdown-profile">
+                <router-link
+                  to="/profile"
+                  class="dropdown-item dropdown-profile"
+                >
                   <font-awesome-icon class="mr-3" icon="user" />Profile
                 </router-link>
-                <a id="qsLogoutBtn" href="#" class="dropdown-item" @click.prevent="logout">
+                <a
+                  id="qsLogoutBtn"
+                  href="#"
+                  class="dropdown-item"
+                  @click.prevent="logout"
+                >
                   <font-awesome-icon class="mr-3" icon="power-off" />Log out
                 </a>
               </div>
             </li>
           </ul>
 
-          <ul v-if="!isAuthenticated && !isLoading" class="navbar-nav d-md-none">
-            <button id="qsLoginBtn" class="btn btn-primary btn-block" @click="login">Log in</button>
+          <ul
+            v-if="!isAuthenticated && !isLoading"
+            class="navbar-nav d-md-none"
+          >
+            <button
+              id="qsLoginBtn"
+              class="btn btn-primary btn-block"
+              @click="login"
+            >
+              Log in
+            </button>
           </ul>
 
-          <ul v-if="isAuthenticated" id="mobileAuthNavBar" class="navbar-nav d-md-none d-flex">
+          <ul
+            v-if="isAuthenticated"
+            id="mobileAuthNavBar"
+            class="navbar-nav d-md-none d-flex"
+          >
             <li class="nav-item">
               <span class="user-info">
                 <img
@@ -77,7 +102,9 @@
 
             <li>
               <font-awesome-icon icon="power-off" class="mr-3" />
-              <a id="qsLogoutBtn" href="#" class @click.prevent="logout">Log out</a>
+              <a id="qsLogoutBtn" href="#" class @click.prevent="logout"
+                >Log out</a
+              >
             </li>
           </ul>
         </div>
