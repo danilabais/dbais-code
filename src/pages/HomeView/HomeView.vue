@@ -1,6 +1,3 @@
-<template>
-    HomeView
-</template>
+<template>HomeView</template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
