@@ -6,7 +6,14 @@
 
 <script lang="ts" setup>
 import { computed } from "vue";
-import {  UnauthorizedLayout } from "./layouts";
+import { UnauthorizedLayout, AuthorizedLayout } from "./layouts";
 
-const layout = computed(() => UnauthorizedLayout);
+import { useAuth0 } from "@auth0/auth0-vue";
+const auth0 = useAuth0();
+const layout = computed(() => {
+  if (auth0.isAuthenticated.value) {
+    return AuthorizedLayout;
+  }
+  return UnauthorizedLayout;
+});
 </script>
