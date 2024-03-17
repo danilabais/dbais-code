@@ -11,7 +11,7 @@ import Hero from "../components/Hero.vue";
 import HomeContent from "../components/HomeContent.vue";
 
 export default {
-  name: "home-view",
+  name: "HomeView",
   components: {
     Hero,
     HomeContent,
@@ -21,6 +21,6 @@ export default {
 
 <style lang="css" scoped>
 .next-steps .fa-link {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 </style>

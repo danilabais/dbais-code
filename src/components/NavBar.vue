@@ -2,7 +2,7 @@
   <div class="nav-container mb-3">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container">
-        <div class="navbar-brand logo"></div>
+        <div class="navbar-brand logo" />
         <button
           class="navbar-toggler"
           type="button"
@@ -12,10 +12,10 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" />
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div id="navbarNav" class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <router-link to="/" class="nav-link">Home</router-link>
@@ -23,18 +23,16 @@
           </ul>
           <ul class="navbar-nav d-none d-md-block">
             <li v-if="!isAuthenticated && !isLoading" class="nav-item">
-              <button
-                id="qsLoginBtn"
-                class="btn btn-primary btn-margin"
-                @click.prevent="login"
-              >Login</button>
+              <button id="qsLoginBtn" class="btn btn-primary btn-margin" @click.prevent="login">
+                Login
+              </button>
             </li>
 
-            <li class="nav-item dropdown" v-if="isAuthenticated">
+            <li v-if="isAuthenticated" class="nav-item dropdown">
               <a
+                id="profileDropDown"
                 class="nav-link dropdown-toggle"
                 href="#"
-                id="profileDropDown"
                 data-toggle="dropdown"
               >
                 <img
@@ -56,15 +54,11 @@
             </li>
           </ul>
 
-          <ul class="navbar-nav d-md-none" v-if="!isAuthenticated && !isLoading">
+          <ul v-if="!isAuthenticated && !isLoading" class="navbar-nav d-md-none">
             <button id="qsLoginBtn" class="btn btn-primary btn-block" @click="login">Log in</button>
           </ul>
 
-          <ul
-            id="mobileAuthNavBar"
-            class="navbar-nav d-md-none d-flex"
-            v-if="isAuthenticated"
-          >
+          <ul v-if="isAuthenticated" id="mobileAuthNavBar" class="navbar-nav d-md-none d-flex">
             <li class="nav-item">
               <span class="user-info">
                 <img
@@ -93,13 +87,13 @@
 </template>
 
 <script lang="ts">
-import { useAuth0 } from '@auth0/auth0-vue';
+import { useAuth0 } from "@auth0/auth0-vue";
 
 export default {
   name: "NavBar",
   setup() {
     const auth0 = useAuth0();
-    
+
     return {
       isAuthenticated: auth0.isAuthenticated,
       isLoading: auth0.isLoading,
@@ -110,12 +104,12 @@ export default {
       logout() {
         auth0.logout({
           logoutParams: {
-            returnTo: window.location.origin
-          }
+            returnTo: window.location.origin,
+          },
         });
-      }
-    }
-  }
+      },
+    };
+  },
 };
 </script>
 

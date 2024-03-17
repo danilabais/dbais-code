@@ -2,8 +2,7 @@ import App from "./App.vue";
 import { createApp } from "vue";
 import { createRouter } from "./router";
 import { createAuth0 } from "@auth0/auth0-vue";
-import {authConfig} from "@/app/config";
-
+import { authConfig } from "@/app/config";
 
 const app = createApp(App);
 
@@ -15,7 +14,7 @@ app
       clientId: authConfig.clientId,
       authorizationParams: {
         redirect_uri: window.location.origin,
-      }
-    })
+      },
+    }),
   )
   .mount("#app");

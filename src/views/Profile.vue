@@ -21,17 +21,16 @@
 </template>
 
 <script lang="ts">
-import { useAuth0 } from '@auth0/auth0-vue';
+import { useAuth0 } from "@auth0/auth0-vue";
 
 export default {
-  name: "profile-view",
+  name: "ProfileView",
   setup() {
     const auth0 = useAuth0();
-    
+
     return {
       user: auth0.user,
-    }
-  }
+    };
+  },
 };
 </script>
-

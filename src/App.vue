@@ -8,7 +8,7 @@
       </div>
     </div>
     <footer class="bg-light text-center p-3">
-      <div class="logo"></div>
+      <div class="logo" />
       <p>
         Sample project provided by
         <a href="https://auth0.com">Auth0</a>
@@ -24,7 +24,7 @@ import Error from "./components/Error.vue";
 export default {
   components: {
     NavBar,
-    Error
-  }
+    Error,
+  },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="alert alert-danger alert-dismissible" v-if="msg">
-    {{msg}}
+  <div v-if="msg" class="alert alert-danger alert-dismissible">
+    {{ msg }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -13,8 +13,7 @@ export default {
   computed: {
     msg() {
       return this.$auth0.error.value;
-    }
-  }
+    },
+  },
 };
 </script>
-
