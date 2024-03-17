@@ -7,8 +7,6 @@ import {authConfig} from "@/app/config";
 
 const app = createApp(App);
 
-
-
 app
   .use(createRouter(app))
   .use(
