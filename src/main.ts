@@ -3,8 +3,7 @@ import { createApp } from "vue";
 import { createRouter } from "./router";
 import { createAuth0 } from "@auth0/auth0-vue";
 import { authConfig } from "@/app/config";
-import '@/app/styles/main.scss'
-
+import "@/app/styles/main.scss";
 
 const app = createApp(App);
 
