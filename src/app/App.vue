@@ -1,6 +1,6 @@
 <template>
   <component :is="layout">
-    <div>test</div>
+    <RouterView />
   </component>
 </template>
 
@@ -14,6 +14,6 @@ const layout = computed(() => {
   if (auth0.isAuthenticated.value) {
     return AuthorizedLayout;
   }
-  return UnauthorizedLayout;
+  return AuthorizedLayout;
 });
 </script>

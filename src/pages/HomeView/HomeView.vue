@@ -1,3 +1,13 @@
-<template>HomeView</template>
+<template>
+  <UIContainerBase space>
+    <NoteList />
+  </UIContainerBase>
 
-<script setup lang="ts"></script>
+  <NoteAdd />
+</template>
+
+<script setup lang="ts">
+import { UIContainerBase } from "@/UI";
+
+import { NoteList,NoteAdd } from "@/widgets";
+</script>

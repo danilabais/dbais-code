@@ -4,11 +4,14 @@ import { createRouter } from "./router";
 import { createAuth0 } from "@auth0/auth0-vue";
 import { authConfig } from "@/app/config";
 import "@/app/styles/main.scss";
+import { createPinia } from "pinia";
 
 const app = createApp(App);
+const pinia = createPinia()
 
 app
   .use(createRouter())
+  .use(pinia)
   .use(
     createAuth0({
       domain: authConfig.domain,
