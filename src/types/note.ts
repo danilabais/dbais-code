@@ -6,3 +6,4 @@ export type note ={
     id: number,
     title: string,
 }
+

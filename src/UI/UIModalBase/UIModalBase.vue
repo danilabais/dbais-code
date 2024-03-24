@@ -2,32 +2,36 @@
     
     <Teleport to="body">
         <UITransitionBase>
-            <div :class="styles.wrapper" v-if="true">
-                <div :class="styles.outlet"/>
+            <div :class="styles.wrapper" v-if="modalValue">
                 <UIContainerBase>
                    
-                    <div :class="styles.modalBody" ref="modalBody" >
-                        {{ value }}
-                        <slot/>
-                    </div>
-                </UIContainerBase>
+                   <div :class="styles.modalBody" ref="modalBody" >
+                       <slot/>
+                   </div>
+               </UIContainerBase>
+
+                <div :class="styles.outlet"/>
+               
             </div>
         </UITransitionBase>
     </Teleport>
 </template>
 
 <script setup lang="ts">
-import {defineModel, ref} from 'vue'
+import { ref} from 'vue'
 import styles from './UIModalBase.module.scss'
 import { UITransitionBase, UIContainerBase } from '@/UI'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, whenever } from '@vueuse/core'
+import { logicNot } from '@vueuse/math'
 
-const value = defineModel<boolean>('isOpen')
+const emit = defineEmits(['close'])
+const modalValue = defineModel<boolean>('isModalOpen')
 
 const modalBody = ref(null)
 
 onClickOutside(modalBody, () => {
-    value.value = false
+    modalValue.value = false
 })
+whenever(logicNot(modalValue), () => emit('close'))
 </script>
 

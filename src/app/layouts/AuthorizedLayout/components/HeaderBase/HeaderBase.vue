@@ -13,9 +13,10 @@
 <script setup lang="ts">
 import styles from "./HeaderBase.module.scss";
 import { UIContainerBase, UIButtonBase, UILogoBase,UIUnstyleButton } from "@/UI";
+import { useAuth } from "@/composables";
 
-import { useAuth0 } from "@auth0/auth0-vue";
-const { logout } = useAuth0();
+
+const { logout } = useAuth();
 
 const handleExit = () => {
   logout();

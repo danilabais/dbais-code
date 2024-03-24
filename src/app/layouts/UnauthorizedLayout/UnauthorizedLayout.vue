@@ -5,7 +5,10 @@
     <UITextBase :class="styles.text">
       Приложение для заметок. Для того, чтобы начать пользоваться, авторизуйтесь
     </UITextBase>
+
     <UIButtonBase @click="handleAuth"> Авторизоваться </UIButtonBase>
+    <UIButtonBase @click="handleAdmin"> Авторизоваться как админ </UIButtonBase>
+    <UIButtonBase @click="handleAuthQuest"> Авторизоваться как гость </UIButtonBase>
   </UIContainerBase>
 </template>
 
@@ -13,8 +16,14 @@
 import styles from "./UnauthorizedLayout.module.scss";
 import { UIContainerBase, UILogoBase, UITextBase, UIButtonBase } from "@/UI";
 import { useAuth } from "@/composables";
-const { login } = useAuth();
+const { login,loginAsQuest } = useAuth();
 const handleAuth = () => {
-  login();
+  login({userRole:'common'});
 };
+const handleAdmin = () => {
+  login({userRole:'admin'});
+};
+const handleAuthQuest = () => {
+  loginAsQuest()
+}
 </script>
