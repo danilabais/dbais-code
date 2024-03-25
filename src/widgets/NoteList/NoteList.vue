@@ -1,7 +1,6 @@
 <template>
-    <NoteList />
-    <NoteAdd />
-
+  <NoteList />
+  <NoteAdd />
 </template>
 
 <script setup lang="ts">

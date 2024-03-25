@@ -8,5 +8,5 @@
 
 <script setup lang="ts">
 import { HeaderBase, FooterBase } from "./components";
-import styles from './AuthorizedLayout.module.scss'
+import styles from "./AuthorizedLayout.module.scss";
 </script>

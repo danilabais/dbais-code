@@ -1,16 +1,15 @@
 <template>
   <div :class="styles.wrapper">
     <UIContainerBase :class="styles.inner">
-      <router-link :to="{name:'HomeView'}">
+      <router-link :to="{ name: 'HomeView' }">
         <UILogoBase />
-     </router-link>
-     <div :class="styles.left">
-    
-      <router-link :to="{name:'ProfileView'}">
-        <UserProfileBase :image="user.picture"  :name="user.email"/>
       </router-link>
-      <UIButtonBase @click="handleExit"> Exit </UIButtonBase>
-    </div>
+      <div :class="styles.left">
+        <router-link :to="{ name: 'ProfileView' }">
+          <UserProfileBase :image="user.picture" :name="user.email" />
+        </router-link>
+        <UIButtonBase @click="handleExit"> Exit </UIButtonBase>
+      </div>
     </UIContainerBase>
   </div>
   <div :class="styles.fixHeight" />
