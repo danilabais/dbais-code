@@ -1,10 +1,10 @@
 <template>
-  <div :class="styles.wrapper">
+  <div :class="styles.wrapperd">
     <div
       :class="[
         styles.inner,
         {
-          [styles.error]: props.error,
+          [styles[error]]: props.error,
         },
       ]"
     >
@@ -23,8 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import styles from "./UIInputBase.module.scss";
-
 defineOptions({
   inheritAttrs: false,
 });
@@ -35,7 +33,7 @@ const props = withDefaults(
   defineProps<{
     placeholder?: string;
     maxLength?: number | string;
-    error: string;
+    error?: string;
   }>(),
   {
     placeholder: "",
@@ -44,3 +42,7 @@ const props = withDefaults(
   },
 );
 </script>
+
+<style lang="scss" module="styles">
+@import "./UIInputBase.module.scss";
+</style>

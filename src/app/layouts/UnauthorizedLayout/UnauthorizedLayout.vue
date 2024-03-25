@@ -3,14 +3,12 @@
     <UILogoBase />
 
     <UITextBase :class="styles.text">
-      Приложение для заметок. Для того, чтобы начать пользоваться, авторизуйтесь
+      Notes app. To start using, log in
     </UITextBase>
 
-    <UIButtonBase @click="handleAuth"> Авторизоваться </UIButtonBase>
-    <UIButtonBase @click="handleAdmin"> Авторизоваться как админ </UIButtonBase>
-    <UIButtonBase @click="handleAuthQuest">
-      Авторизоваться как гость
-    </UIButtonBase>
+    <UIButtonBase @click="handleAuth"> Login </UIButtonBase>
+    <UIButtonBase @click="handleAdmin"> Login as admin </UIButtonBase>
+    <UIButtonBase @click="handleAuthQuest"> Log in as a guest </UIButtonBase>
   </UIContainerBase>
 </template>
 
