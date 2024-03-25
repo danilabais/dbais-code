@@ -15,8 +15,8 @@ import styles from "./UIButtonBase.module.scss";
 
 const props = withDefaults(
   defineProps<{
-    small: boolean;
-    danger: boolean;
+    small?: boolean;
+    danger?: boolean;
   }>(),
   {
     small: false,

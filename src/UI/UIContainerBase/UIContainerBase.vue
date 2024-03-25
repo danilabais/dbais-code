@@ -9,7 +9,7 @@ import styles from "./UIContainerBase.module.scss";
 
 const props = withDefaults(
   defineProps<{
-    space: boolean;
+    space?: boolean;
   }>(),
   {
     space: false,
