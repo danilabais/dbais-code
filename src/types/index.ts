@@ -1,2 +1,2 @@
-export {note} from './note'
-export {role,user} from './user'
+export { note } from "./note";
+export { role, user } from "./user";

@@ -14,7 +14,8 @@ button {
   cursor: pointer;
 }
 
-input,textarea {
+input,
+textarea {
   outline: none;
   border: none;
   width: 100%;
@@ -22,8 +23,6 @@ input,textarea {
 textarea {
   resize: none;
 }
-
-
 
 html {
   height: 100%;

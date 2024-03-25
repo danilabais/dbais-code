@@ -12,9 +12,13 @@
 
 <script setup lang="ts">
 import styles from "./HeaderBase.module.scss";
-import { UIContainerBase, UIButtonBase, UILogoBase,UIUnstyleButton } from "@/UI";
+import {
+  UIContainerBase,
+  UIButtonBase,
+  UILogoBase,
+  UIUnstyleButton,
+} from "@/UI";
 import { useAuth } from "@/composables";
-
 
 const { logout } = useAuth();
 
@@ -24,6 +28,6 @@ const handleExit = () => {
 
 const reloadPage = () => {
   // also for reload page, reason why i dont use router
-  location.href='/'
-}
+  location.href = "/";
+};
 </script>

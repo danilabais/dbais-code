@@ -5,9 +5,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  cursor: pointer;  
-  
-  @include transition( background );
+  cursor: pointer;
+
+  @include transition(background);
 
   @include hover {
     background: rgba(255, 255, 255, 0.1);
@@ -30,7 +30,6 @@
   font-weight: 400;
   color: #ffffff99;
   @include ellipsis;
-  
 }
 .body {
   display: flex;

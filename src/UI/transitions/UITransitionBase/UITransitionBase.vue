@@ -1,10 +1,9 @@
-
 <template>
-     <Transition>
-        <slot/>
-     </Transition>
+  <Transition>
+    <slot />
+  </Transition>
 </template>
-<style  >
+<style>
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
