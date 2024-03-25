@@ -8,9 +8,7 @@
 
     <UIButtonBase @click="handleAuth"> Login </UIButtonBase>
     <UIButtonBase @click="handleAdmin"> Login as admin </UIButtonBase>
-    <UIButtonBase @click="handleAuthQuest">
-      Log in as a guest
-    </UIButtonBase>
+    <UIButtonBase @click="handleAuthQuest"> Log in as a guest </UIButtonBase>
   </UIContainerBase>
 </template>
 
