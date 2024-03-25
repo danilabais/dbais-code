@@ -1,5 +1,6 @@
 import { mount } from "@vue/test-utils";
 import NoteBase from "./NoteBase.vue";
+import { describe, it, expect } from "vitest";
 
 describe("NoteBase", () => {
   it("renders correctly with note data", () => {
