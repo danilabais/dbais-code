@@ -1,7 +1,13 @@
 <template>
   <div :class="[styles.wrapper, styles[props.size]]">
-    <UILoaderBase data-test="loader" v-if="isLoading" />
-    <img data-test="photo" v-else  :class="styles.image" :src="props.src" :alt="props.alt" />
+    <UILoaderBase v-if="isLoading" data-test="loader" />
+    <img
+      v-else
+      data-test="photo"
+      :class="styles.image"
+      :src="props.src"
+      :alt="props.alt"
+    />
   </div>
 </template>
 
@@ -26,5 +32,5 @@ const { isLoading } = useImage({ src: props.src });
 </script>
 
 <style lang="scss" module="styles">
-@import './UIImageBase.module.scss';
+@import "./UIImageBase.module.scss";
 </style>

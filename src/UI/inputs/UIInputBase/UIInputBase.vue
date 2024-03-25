@@ -23,8 +23,6 @@
 </template>
 
 <script setup lang="ts">
-
-
 defineOptions({
   inheritAttrs: false,
 });
@@ -46,5 +44,5 @@ const props = withDefaults(
 </script>
 
 <style lang="scss" module="styles">
-@import './UIInputBase.module.scss';
+@import "./UIInputBase.module.scss";
 </style>
