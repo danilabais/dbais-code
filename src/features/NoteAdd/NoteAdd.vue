@@ -4,11 +4,7 @@
   <UIModalBase v-model:isModalOpen="isModalOpen" @close="onCloseModal">
     <div :class="styles.wrapper">
       <div :class="styles.title">Create note</div>
-      <UIInputBase
-        v-model="noteTitle"
-        placeholder="Title"
-        :error="errors.noteTitle"
-      />
+     
       <UITextareaBase
         v-model="noteText"
         placeholder="Text"
@@ -24,16 +20,16 @@
 <script setup lang="ts">
 import styles from "./NoteAdd.module.scss";
 import { useNoteStore } from "@/models";
-import { UIModalBase, UIButtonBase, UIInputBase, UITextareaBase } from "@/UI";
+import { UIModalBase, UIButtonBase,  UITextareaBase } from "@/UI";
 import { ref } from "vue";
 import { useAuth } from "@/composables";
+
 
 const { user } = useAuth();
 
 const isModalOpen = ref(false);
 
 const initialErrors = () => ({
-  noteTitle: "",
   noteText: "",
 });
 
@@ -43,10 +39,7 @@ const validate = () => {
 
   errors.value = initialErrors();
 
-  if (!noteTitle.value) {
-    errors.value.noteTitle = "Title is required!";
-    result = false;
-  }
+ 
 
   if (!noteText.value) {
     errors.value.noteText = "Text is required!";
@@ -65,10 +58,17 @@ const validate = () => {
 };
 
 const noteStore = useNoteStore();
-const noteTitle = ref("");
 const noteText = ref("");
 
+
+
 const errors = ref(initialErrors());
+
+
+const resetData = () => {
+    noteText.value = "";
+    errors.value = initialErrors();
+}
 
 const handleCreate = () => {
   const { isValid } = validate();
@@ -78,18 +78,14 @@ const handleCreate = () => {
   }
 
   noteStore.createNote({
-    title: noteTitle.value,
     text: noteText.value,
     authorMail: user.value.email,
   });
 
-  noteTitle.value = "";
-  noteText.value = "";
+ resetData()
   isModalOpen.value = false;
 };
 const onCloseModal = () => {
-  noteTitle.value = "";
-  noteText.value = "";
-  errors.value = initialErrors();
+ resetData()
 };
 </script>

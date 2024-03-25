@@ -1,0 +1,21 @@
+.wrapper {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    overflow-y: auto;
+  }
+  
+  .title {
+    font-weight: 600;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .noteAdd {
+    margin-top: auto;
+  }
+  

@@ -4,5 +4,4 @@ export type note = {
   text: string;
   lastModification: number;
   id: number;
-  title: string;
 };
