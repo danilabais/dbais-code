@@ -4,7 +4,7 @@
   <UIModalBase v-model:isModalOpen="isModalOpen" @close="onCloseModal">
     <div :class="styles.wrapper">
       <div :class="styles.title">Create note</div>
-     
+
       <UITextareaBase
         v-model="noteText"
         placeholder="Text"
@@ -20,10 +20,9 @@
 <script setup lang="ts">
 import styles from "./NoteAdd.module.scss";
 import { useNoteStore } from "@/models";
-import { UIModalBase, UIButtonBase,  UITextareaBase } from "@/UI";
+import { UIModalBase, UIButtonBase, UITextareaBase } from "@/UI";
 import { ref } from "vue";
 import { useAuth } from "@/composables";
-
 
 const { user } = useAuth();
 
@@ -38,8 +37,6 @@ const validate = () => {
   let result = true;
 
   errors.value = initialErrors();
-
- 
 
   if (!noteText.value) {
     errors.value.noteText = "Text is required!";
@@ -60,15 +57,12 @@ const validate = () => {
 const noteStore = useNoteStore();
 const noteText = ref("");
 
-
-
 const errors = ref(initialErrors());
 
-
 const resetData = () => {
-    noteText.value = "";
-    errors.value = initialErrors();
-}
+  noteText.value = "";
+  errors.value = initialErrors();
+};
 
 const handleCreate = () => {
   const { isValid } = validate();
@@ -82,10 +76,10 @@ const handleCreate = () => {
     authorMail: user.value.email,
   });
 
- resetData()
+  resetData();
   isModalOpen.value = false;
 };
 const onCloseModal = () => {
- resetData()
+  resetData();
 };
 </script>

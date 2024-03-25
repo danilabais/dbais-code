@@ -1,17 +1,14 @@
 <template>
-    <div :class="styles.wrapper">
-        <div :class="styles.header">
-           <slot name="controls" />
-        <div :class="styles.date">
+  <div :class="styles.wrapper">
+    <div :class="styles.header">
+      <slot name="controls" />
+      <div :class="styles.date">
         {{ lastTimeEdited }}
-         ({{
-          props.note.authorMail
-        }})
+        ({{ props.note.authorMail }})
       </div>
-     
     </div>
 
-      <div :class="styles.text">{{ props.note.text }}</div>
+    <div :class="styles.text">{{ props.note.text }}</div>
   </div>
 </template>
 
@@ -25,10 +22,10 @@ const props = defineProps<{
 }>();
 
 const lastTimeEdited = computed(() => {
-    if (props.note.lastModification > props.note.createdAt) {
-        return `edited: ${new Date(props.note.lastModification).toLocaleDateString()}`
-    }
+  if (props.note.lastModification > props.note.createdAt) {
+    return `edited: ${new Date(props.note.lastModification).toLocaleDateString()}`;
+  }
 
-    return new Date(props.note.createdAt).toLocaleDateString() 
-})
+  return new Date(props.note.createdAt).toLocaleDateString();
+});
 </script>

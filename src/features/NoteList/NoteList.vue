@@ -1,9 +1,9 @@
 <template>
   <div :class="styles.wrapper">
-    <div :class="styles.noOneYet" v-if="!noteStore.allNotes.length">
+    <div v-if="!noteStore.allNotes.length" :class="styles.noOneYet">
       no note has been created yet
     </div>
-    <slot name="note" :note="note" v-for="note in noteStore.allNotes"  />
+    <slot v-for="note in noteStore.allNotes" name="note" :note="note" />
   </div>
 </template>
 

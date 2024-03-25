@@ -4,8 +4,8 @@ import { note } from "@/types";
 import { useAuth } from "@/composables";
 import { useStorage } from "@vueuse/core";
 
-type createNote = Pick<note, "authorMail" | "text" >;
-type editNote = Pick<note,  "text"  | 'id'>;
+type createNote = Pick<note, "authorMail" | "text">;
+type editNote = Pick<note, "text" | "id">;
 type deleteNote = Pick<note, "id">;
 
 export const useNoteStore = defineStore("note", () => {
@@ -47,24 +47,24 @@ export const useNoteStore = defineStore("note", () => {
       createdAt: +new Date(),
       authorMail,
       text,
-      
+
       lastModification: +new Date(),
       id: +new Date(),
     });
   };
-  const editNote = ({  text, id }: editNote) => {
-      const finedNote = notes.value.find(el => el.id === id)
-      if (!finedNote) {
-          return
-      }
-     
-      finedNote.text= text
-      finedNote.lastModification= +new Date()
-  };
-    
-    const deleteNote =({ id }:deleteNote) => {
-        notes.value=notes.value.filter(note=>note.id!==id)
+  const editNote = ({ text, id }: editNote) => {
+    const finedNote = notes.value.find((el) => el.id === id);
+    if (!finedNote) {
+      return;
     }
 
-  return { allNotes, createNote, deleteNote,editNote };
+    finedNote.text = text;
+    finedNote.lastModification = +new Date();
+  };
+
+  const deleteNote = ({ id }: deleteNote) => {
+    notes.value = notes.value.filter((note) => note.id !== id);
+  };
+
+  return { allNotes, createNote, deleteNote, editNote };
 });
