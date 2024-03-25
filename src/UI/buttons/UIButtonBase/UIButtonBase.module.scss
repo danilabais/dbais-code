@@ -4,8 +4,13 @@
   color: #fff;
   padding: 8px 30px;
   border-radius: 4px;
-  transition: background 0.3s ease;
+  @include transition( background );
+  font-weight: 400;
+
+line-height: 162%;
+text-align: center;
+color: #fff;
   &:hover {
-    background: #0520ce;
+    background: #312eb5;
   }
 }

@@ -1,0 +1,38 @@
+.wrapper {
+  border-radius: 3px;
+  padding: 20px;
+  background: #ffffff08;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;  
+  
+  @include transition( background );
+
+  @include hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 156%;
+  color: #fff;
+}
+
+.date {
+  font-weight: 400;
+  color: #ffffff66;
+  white-space: nowrap;
+}
+.text {
+  font-weight: 400;
+  color: #ffffff99;
+  @include ellipsis;
+  
+}
+.body {
+  display: flex;
+  gap: 10px;
+}
