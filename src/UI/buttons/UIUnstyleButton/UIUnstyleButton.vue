@@ -1,10 +1,9 @@
 <template>
-    <button :class="style.btn">
-        <slot />
-    </button>
+  <button :class="style.btn">
+    <slot />
+  </button>
 </template>
 
 <script setup lang="ts">
-import style from './UIUnstyleButton.module.scss'
-
+import style from "./UIUnstyleButton.module.scss";
 </script>

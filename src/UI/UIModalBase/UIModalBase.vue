@@ -1,37 +1,33 @@
 <template>
-    
-    <Teleport to="body">
-        <UITransitionBase>
-            <div :class="styles.wrapper" v-if="modalValue">
-                <UIContainerBase>
-                   
-                   <div :class="styles.modalBody" ref="modalBody" >
-                       <slot/>
-                   </div>
-               </UIContainerBase>
+  <Teleport to="body">
+    <UITransitionBase>
+      <div v-if="modalValue" :class="styles.wrapper">
+        <UIContainerBase>
+          <div ref="modalBody" :class="styles.modalBody">
+            <slot />
+          </div>
+        </UIContainerBase>
 
-                <div :class="styles.outlet"/>
-               
-            </div>
-        </UITransitionBase>
-    </Teleport>
+        <div :class="styles.outlet" />
+      </div>
+    </UITransitionBase>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
-import { ref} from 'vue'
-import styles from './UIModalBase.module.scss'
-import { UITransitionBase, UIContainerBase } from '@/UI'
-import { onClickOutside, whenever } from '@vueuse/core'
-import { logicNot } from '@vueuse/math'
+import { ref } from "vue";
+import styles from "./UIModalBase.module.scss";
+import { UITransitionBase, UIContainerBase } from "@/UI";
+import { onClickOutside, whenever } from "@vueuse/core";
+import { logicNot } from "@vueuse/math";
 
-const emit = defineEmits(['close'])
-const modalValue = defineModel<boolean>('isModalOpen')
+const emit = defineEmits(["close"]);
+const modalValue = defineModel<boolean>("isModalOpen");
 
-const modalBody = ref(null)
+const modalBody = ref(null);
 
 onClickOutside(modalBody, () => {
-    modalValue.value = false
-})
-whenever(logicNot(modalValue), () => emit('close'))
+  modalValue.value = false;
+});
+whenever(logicNot(modalValue), () => emit("close"));
 </script>
-

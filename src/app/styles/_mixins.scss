@@ -12,8 +12,6 @@
   text-overflow: ellipsis;
 }
 
-
-
-@mixin transition($x...){
-        transition: $x .3s ease;
-      }
+@mixin transition($x...) {
+  transition: $x 0.3s ease;
+}

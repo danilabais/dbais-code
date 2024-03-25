@@ -7,7 +7,7 @@ import "@/app/styles/main.scss";
 import { createPinia } from "pinia";
 
 const app = createApp(App);
-const pinia = createPinia()
+const pinia = createPinia();
 
 app
   .use(createRouter())

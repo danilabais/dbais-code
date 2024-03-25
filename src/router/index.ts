@@ -3,10 +3,9 @@ import {
   createWebHistory,
   Router,
 } from "vue-router";
-import { HomeView, ProfileView,NotFoundPage } from "@/pages";
+import { HomeView, ProfileView, NotFoundPage } from "@/pages";
 
-import { authGuard } from './authGuard'
-
+import { authGuard } from "./authGuard";
 
 const routes = [
   {
@@ -21,17 +20,17 @@ const routes = [
     beforeEnter: authGuard,
   },
   {
-    path: '/:pathMatch(.*)*',
+    path: "/:pathMatch(.*)*",
     component: NotFoundPage,
     meta: {
-      layout: 'empty'
-    }
+      layout: "empty",
+    },
   },
-]
+];
 
-export const  createRouter=(): Router=> {
+export const createRouter = (): Router => {
   return createVueRouter({
     routes,
     history: createWebHistory(),
   });
-}
+};

@@ -8,7 +8,9 @@
 
     <UIButtonBase @click="handleAuth"> Авторизоваться </UIButtonBase>
     <UIButtonBase @click="handleAdmin"> Авторизоваться как админ </UIButtonBase>
-    <UIButtonBase @click="handleAuthQuest"> Авторизоваться как гость </UIButtonBase>
+    <UIButtonBase @click="handleAuthQuest">
+      Авторизоваться как гость
+    </UIButtonBase>
   </UIContainerBase>
 </template>
 
@@ -16,14 +18,14 @@
 import styles from "./UnauthorizedLayout.module.scss";
 import { UIContainerBase, UILogoBase, UITextBase, UIButtonBase } from "@/UI";
 import { useAuth } from "@/composables";
-const { login,loginAsQuest } = useAuth();
+const { login, loginAsQuest } = useAuth();
 const handleAuth = () => {
-  login({userRole:'user'});
+  login({ userRole: "user" });
 };
 const handleAdmin = () => {
-  login({userRole:'admin'});
+  login({ userRole: "admin" });
 };
 const handleAuthQuest = () => {
-  loginAsQuest()
-}
+  loginAsQuest();
+};
 </script>

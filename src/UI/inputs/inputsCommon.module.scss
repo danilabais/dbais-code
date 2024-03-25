@@ -1,21 +1,19 @@
 .inner {
-    border: 1px solid #6a6a6a;
-    padding: 10px;
-    border-radius: 10px;
-    &.error {
-        border: 1px solid #b90000;
-    }
+  border: 1px solid #6a6a6a;
+  padding: 10px;
+  border-radius: 10px;
+  &.error {
+    border: 1px solid #b90000;
+  }
 }
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    border: 1px solid transparent;
-   
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid transparent;
 }
 
 .error {
-    font-size: 14px;
-    color: #b90000;
+  font-size: 14px;
+  color: #b90000;
 }
-
