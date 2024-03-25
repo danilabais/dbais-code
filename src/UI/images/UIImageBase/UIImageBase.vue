@@ -1,14 +1,13 @@
 <template>
   <div :class="[styles.wrapper, styles[props.size]]">
-    <UILoaderBase v-if="isLoading" />
-    <img v-else :class="styles.image" :src="props.src" :alt="props.alt" />
+    <UILoaderBase data-test="loader" v-if="isLoading" />
+    <img data-test="photo" v-else  :class="styles.image" :src="props.src" :alt="props.alt" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { UILoaderBase } from "@/UI";
 import { useImage } from "@vueuse/core";
-import styles from "./UIImageBase.module.scss";
 
 type imageSizes = "xs" | "xl";
 
@@ -25,3 +24,7 @@ const props = withDefaults(
 
 const { isLoading } = useImage({ src: props.src });
 </script>
+
+<style lang="scss" module="styles">
+@import './UIImageBase.module.scss';
+</style>
