@@ -7,3 +7,5 @@ export { default as UIModalBase } from "./UIModalBase/UIModalBase.vue";
 export { default as UITransitionBase } from "./transitions/UITransitionBase/UITransitionBase.vue";
 export { default as UIInputBase } from "./inputs/UIInputBase/UIInputBase.vue";
 export { default as UITextareaBase } from "./inputs/UITextareaBase/UITextareaBase.vue";
+export { default as UIImageBase } from "./images/UIImageBase/UIImageBase.vue";
+export { default as UILoaderBase } from "./loaders/UILoaderBase/UILoaderBase.vue";

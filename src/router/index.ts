@@ -3,23 +3,35 @@ import {
   createWebHistory,
   Router,
 } from "vue-router";
-import { HomeView } from "@/pages";
+import { HomeView, ProfileView,NotFoundPage } from "@/pages";
 
-export function createRouter(): Router {
+import { authGuard } from './authGuard'
+
+
+const routes = [
+  {
+    path: "/",
+    name: "HomeView",
+    component: HomeView,
+  },
+  {
+    path: "/profile",
+    name: "ProfileView",
+    component: ProfileView,
+    beforeEnter: authGuard,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: NotFoundPage,
+    meta: {
+      layout: 'empty'
+    }
+  },
+]
+
+export const  createRouter=(): Router=> {
   return createVueRouter({
-    routes: [
-      {
-        path: "/",
-        name: "home",
-        component: HomeView,
-      },
-      // {
-      //   path: "/profile",
-      //   name: "profile",
-      //   component: Profile,
-      //   beforeEnter: createAuthGuard(app),
-      // },
-    ],
+    routes,
     history: createWebHistory(),
   });
 }
