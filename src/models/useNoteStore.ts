@@ -4,7 +4,9 @@ import { note } from "@/types";
 import { useAuth } from "@/composables";
 import { useStorage } from "@vueuse/core";
 
-type createNote = Pick<note, "authorMail" | "text" | "title">;
+type createNote = Pick<note, "authorMail" | "text">;
+type editNote = Pick<note, "text" | "id">;
+type deleteNote = Pick<note, "id">;
 
 export const useNoteStore = defineStore("note", () => {
   const { user, userRole } = useAuth();
@@ -15,7 +17,13 @@ export const useNoteStore = defineStore("note", () => {
       text: "Привет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мир",
       lastModification: 1711058066486,
       id: 1711058066486,
-      title: "КУ!",
+    },
+    {
+      createdAt: 1711058066486,
+      authorMail: "da_bu3ddha@bk.ru",
+      text: "Привет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мирПривет мир",
+      lastModification: 1711058066486,
+      id: 1711058066486,
     },
   ]);
 
@@ -34,16 +42,29 @@ export const useNoteStore = defineStore("note", () => {
     return result;
   });
 
-  const createNote = ({ authorMail, text, title }: createNote) => {
+  const createNote = ({ authorMail, text }: createNote) => {
     notes.value.push({
       createdAt: +new Date(),
       authorMail,
       text,
-      title,
+
       lastModification: +new Date(),
       id: +new Date(),
     });
   };
+  const editNote = ({ text, id }: editNote) => {
+    const finedNote = notes.value.find((el) => el.id === id);
+    if (!finedNote) {
+      return;
+    }
 
-  return { allNotes, createNote };
+    finedNote.text = text;
+    finedNote.lastModification = +new Date();
+  };
+
+  const deleteNote = ({ id }: deleteNote) => {
+    notes.value = notes.value.filter((note) => note.id !== id);
+  };
+
+  return { allNotes, createNote, deleteNote, editNote };
 });

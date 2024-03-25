@@ -1,22 +1,31 @@
 <template>
   <div :class="styles.wrapper">
-    <div :class="styles.title">{{ note.title }}</div>
-    <div :class="styles.body">
+    <div :class="styles.header">
+      <slot name="controls" />
       <div :class="styles.date">
-        {{ new Date(props.note.createdAt).toLocaleDateString() }} ({{
-          props.note.authorMail
-        }})
+        {{ lastTimeEdited }}
+        ({{ props.note.authorMail }})
       </div>
-      <div :class="styles.text">{{ props.note.text }}</div>
     </div>
+
+    <div :class="styles.text">{{ props.note.text }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import styles from "./NoteBase.module.scss";
 import type { note as noteType } from "@/types";
 
 const props = defineProps<{
   note: noteType;
 }>();
+
+const lastTimeEdited = computed(() => {
+  if (props.note.lastModification > props.note.createdAt) {
+    return `edited: ${new Date(props.note.lastModification).toLocaleDateString()}`;
+  }
+
+  return new Date(props.note.createdAt).toLocaleDateString();
+});
 </script>
