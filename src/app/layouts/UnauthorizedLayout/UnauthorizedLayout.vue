@@ -18,7 +18,7 @@ import { UIContainerBase, UILogoBase, UITextBase, UIButtonBase } from "@/UI";
 import { useAuth } from "@/composables";
 const { login,loginAsQuest } = useAuth();
 const handleAuth = () => {
-  login({userRole:'common'});
+  login({userRole:'user'});
 };
 const handleAdmin = () => {
   login({userRole:'admin'});

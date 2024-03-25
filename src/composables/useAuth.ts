@@ -5,8 +5,8 @@ import type { role, user } from "@/types";
 
 
 const questUser = {
-  email: 'annonimus',
-  picture: 'lol'
+  email: 'anonymous',
+  picture: '/assets/user/anonymous.jpeg'
 }
 
 export const useAuth = () => {
