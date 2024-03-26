@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import {  ref } from "vue";
+import { ref } from "vue";
 import styles from "./UIModalBase.module.scss";
 import { UIContainerBase } from "@/UI";
 import { onClickOutside, whenever } from "@vueuse/core";
@@ -24,11 +24,9 @@ const modalValue = defineModel<boolean>("isModalOpen", { required: true });
 
 const modalBody = ref(null);
 
-
 onClickOutside(modalBody, () => {
   modalValue.value = false;
 });
-
 
 whenever(logicNot(modalValue), () => emit("close"));
 </script>
