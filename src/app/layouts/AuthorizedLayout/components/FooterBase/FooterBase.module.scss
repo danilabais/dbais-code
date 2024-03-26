@@ -1,0 +1,14 @@
+.wrapper {
+  background: #1c1c1c;
+  height: 80px;
+  border-top: 1px solid #2c2c2c;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

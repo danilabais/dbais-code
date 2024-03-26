@@ -1,0 +1,10 @@
+@import url(../inputsCommon.module.scss);
+
+.textarea {
+  background: none;
+  color: #fff;
+
+  &::placeholder {
+    color: #a9a9a9;
+  }
+}

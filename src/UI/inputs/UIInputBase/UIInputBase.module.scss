@@ -1,0 +1,9 @@
+@import url(../inputsCommon.module.scss);
+
+.input {
+  background: none;
+  color: #fff;
+  &::placeholder {
+    color: #a9a9a9;
+  }
+}

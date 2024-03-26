@@ -1,0 +1,17 @@
+@mixin hover {
+  @media (hover), (min-width: 0\0) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin transition($x...) {
+  transition: $x 0.3s ease;
+}

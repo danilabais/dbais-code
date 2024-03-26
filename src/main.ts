@@ -1,33 +1,25 @@
-import App from "./App.vue";
+import App from "./app/App.vue";
 import { createApp } from "vue";
 import { createRouter } from "./router";
 import { createAuth0 } from "@auth0/auth0-vue";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faLink, faUser, faPowerOff } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {authConfig} from "@/app/config";
-import hljs from 'highlight.js/lib/core';
-import json from 'highlight.js/lib/languages/json';
-import hljsVuePlugin from "@highlightjs/vue-plugin";
-import "highlight.js/styles/github.css";
-
-hljs.registerLanguage('json', json);
+import { authConfig } from "@/app/config";
+import "@/app/styles/main.scss";
+import { createPinia } from "pinia";
 
 const app = createApp(App);
-
-library.add(faLink, faUser, faPowerOff);
+const pinia = createPinia();
 
 app
-  .use(hljsVuePlugin)
-  .use(createRouter(app))
+  .use(createRouter())
+  .use(pinia)
   .use(
     createAuth0({
       domain: authConfig.domain,
       clientId: authConfig.clientId,
       authorizationParams: {
         redirect_uri: window.location.origin,
-      }
-    })
+      },
+    }),
   )
-  .component("font-awesome-icon", FontAwesomeIcon)
+
   .mount("#app");

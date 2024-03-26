@@ -1,0 +1,28 @@
+.button {
+  border: 0;
+  background: #102ad2;
+  color: #fff;
+  padding: 8px 30px;
+  border-radius: 4px;
+  @include transition(background);
+  font-weight: 400;
+
+  line-height: 162%;
+  text-align: center;
+  color: #fff;
+  &:hover {
+    background: #312eb5;
+  }
+
+  &.danger {
+    background: rgb(174, 0, 0);
+    &:hover {
+      background: rgb(130, 0, 0);
+    }
+  }
+}
+
+.small {
+  padding: 4px 10px;
+  font-size: 14px;
+}

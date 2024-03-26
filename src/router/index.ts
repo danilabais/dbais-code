@@ -1,24 +1,36 @@
-import { createRouter as createVueRouter, createWebHistory, Router } from "vue-router";
-import Home from "../views/Home.vue";
-import Profile from "../views/Profile.vue";
-import { createAuthGuard } from "@auth0/auth0-vue";
-import { App } from 'vue';
+import {
+  createRouter as createVueRouter,
+  createWebHistory,
+  Router,
+} from "vue-router";
+import { HomeView, ProfileView, NotFoundPage } from "@/pages";
 
-export function createRouter(app: App): Router {
+import { authGuard } from "./authGuard";
+
+const routes = [
+  {
+    path: "/",
+    name: "HomeView",
+    component: HomeView,
+  },
+  {
+    path: "/profile",
+    name: "ProfileView",
+    component: ProfileView,
+    beforeEnter: authGuard,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: NotFoundPage,
+    meta: {
+      layout: "empty",
+    },
+  },
+];
+
+export const createRouter = (): Router => {
   return createVueRouter({
-    routes: [
-      {
-        path: "/",
-        name: "home",
-        component: Home
-      },
-      {
-        path: "/profile",
-        name: "profile",
-        component: Profile,
-        beforeEnter: createAuthGuard(app)
-      }
-    ],
-    history: createWebHistory()
-  })
-}
+    routes,
+    history: createWebHistory(),
+  });
+};
