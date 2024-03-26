@@ -3,7 +3,11 @@
     <div v-if="!noteStore.allNotes.length" :class="styles.noOneYet">
       no note has been created yet
     </div>
-    <slot v-for="note in notesSortedByLastModificationTime" name="note" :note="note" />
+    <slot
+      v-for="note in notesSortedByLastModificationTime"
+      name="note"
+      :note="note"
+    />
   </div>
 </template>
 
@@ -14,6 +18,8 @@ import { useNoteStore } from "@/models";
 const noteStore = useNoteStore();
 
 const notesSortedByLastModificationTime = computed(() => {
-  return  [...noteStore.allNotes].sort((a, b) =>  b.lastModification - a.lastModification )
-})
+  return [...noteStore.allNotes].sort(
+    (a, b) => b.lastModification - a.lastModification,
+  );
+});
 </script>
