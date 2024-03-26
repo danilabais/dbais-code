@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { note } from "@/types";
 import { useAuth } from "@/composables";
 import { useStorage } from "@vueuse/core";
-import { notes as notesFixtures } from './fixtures'
+import { notes as notesFixtures } from "./fixtures";
 
 type createNote = Pick<note, "authorMail" | "text">;
 type editNote = Pick<note, "text" | "id">;

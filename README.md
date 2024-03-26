@@ -1,6 +1,6 @@
 # npm i
-# npm run dev
 
+# npm run dev
 
 # Scenario #1 - Logging In and Gated Content
 
